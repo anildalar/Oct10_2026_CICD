@@ -23,6 +23,21 @@ pipeline{
           }
       }
     }
+    stage(' Deploy on Production Server '){
+      steps{
+        // 1. Login to Production Server
+        
+        // 2. Pull(Download) the image 
+        // 3. Run the container
+            script {
+                    def dockerCmd = 'docker run  -p 9000:80 -d oklabs/myimage:latest'
+                    sshagent(['prodserver']) {
+                        sh "ssh root@103.216.171.220 ${dockerCmd}"
+                    }
+              }
+        
+      }
+    }
   }
   
 }
