@@ -7,7 +7,7 @@ pipeline{
         sh '''
           apt update -y
           apt upgrade -y
-          apt install sudo -y
+          apt install sudo sshpass -y
           apt install docker.io docker-compose -y
           service docker start
           service docker status
