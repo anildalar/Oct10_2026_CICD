@@ -31,7 +31,7 @@ pipeline{
         // 3. Run the container
             script {
                     def dockerCmd = 'docker run  -p 9000:80 -d oklabs/myimage:latest'
-                    sshagent(['prodserver']) {
+                    sshagent(['prodserver103']) {
                         sh "ssh root@103.216.171.220 ${dockerCmd}"
                     }
               }
